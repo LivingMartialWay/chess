@@ -1,0 +1,87 @@
+.Board {
+  height: 80vh;
+  width: 80vh;
+
+  max-height: 80vw;
+  max-width: 80vw;
+
+  display: flex;
+  flex-direction: column-reverse;
+
+  margin: 10vh auto;
+  
+  .rank {
+    display: flex;
+
+    .square {
+      flex-grow: 1;
+      background-color: #c2d280;
+      position: relative;
+
+      .promotion-widget {
+        display: flex;
+        position: absolute;
+        z-index: 1000;
+        left: 0;
+        right: 0;
+        background: repeating-linear-gradient(
+                        45deg,
+                        #bccd3080,
+                        #bccd3080 10px,
+                        #fff5 10px,
+                        #fff5 20px
+                      );
+        
+        &.w {
+          top: 0;
+          bottom: -300%;
+          flex-direction: column;
+        }
+
+        &.b {
+          top: 0;
+          bottom: -300%;
+          transform: translateY(-75%);
+          flex-direction: column-reverse;
+        }
+        
+        svg {
+          transform: scale(0.625, 0.625) translate(25%, 25%);
+        }
+      }
+      
+      &.selected {
+        background-color: #697140;
+      }
+      
+      svg {
+        float: left;
+
+        &.marker {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+      }
+    }
+
+    &:nth-child(even) .square:nth-child(even),
+    &:nth-child(odd) .square:nth-child(odd) {
+      background-color: #319013;
+
+      &.selected {
+        background-color: #184809;
+      }
+    }
+  }
+
+  &.Static {
+    width: 30vw;
+    height: 30vw;
+    max-width: 250px;
+    max-height: 250px;
+    margin: 20px auto;
+  }
+}

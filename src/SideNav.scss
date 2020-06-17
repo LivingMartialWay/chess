@@ -1,0 +1,127 @@
+.SideNav {
+  position: fixed;
+  left: -50vw;
+  right: 100vw;
+  top: 0;
+  bottom: 0;
+  background-color: #3161a1;
+  z-index: 10;
+  transition: all 1s;
+
+  display: flex;
+  flex-direction: column;
+  
+  &.open {
+    left: 0;
+    right: 50vw;
+  }
+
+  &.closed {
+    left: -50vw;
+    right: 100vw;
+  }
+
+  .toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    height: 35px;
+    width: 25px;
+  }
+
+  &.open .toggle::before {
+    content: "\2039";
+    font-size: 3rem;
+    line-height: 0.5;
+  }
+  
+  &.closed .toggle::before {
+    content: "\203A";
+    font-size: 3rem;
+    line-height: 0.5;
+  }
+
+  .login-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    button {
+      border-radius: 5px;
+      border-style: solid;
+      outline: none;
+      margin: 10px;
+
+      &:active {
+        background-color: #555;
+        border-color: #555;
+      }
+
+      img {
+        user-select: none;
+      }
+    }
+
+    & > img {
+      margin: 10px 0 0 50px;
+      height: 50px;
+      width: auto;
+    }
+
+    & > input {
+      padding: 4px;
+      border-radius: 3px;
+      font-weight: 800;
+      font-size: 1.125rem;
+      background-color: transparent;
+      color: white;
+      max-width: 30vw;
+      border: 1px dashed white;
+      outline: none;
+      margin-top: 5px;
+
+      &::placeholder {
+        color: #ffd;
+      }
+    }
+  }
+  
+  .active-tab {
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+  
+  .games-list {
+    display: flex;
+    flex-direction: column;
+
+    .static-game {
+      max-height: 320px;
+      cursor: pointer;
+    }
+  }
+
+  .tabs-headers {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    
+    & > div {
+      margin: 5px;
+      padding: 5px;
+
+      border: 1px solid white;
+      border-radius: 3px;
+      background-color: #fff8;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0008;
+      }
+      &.selected {
+        background-color: #8888;
+      }
+    }
+  }
+}
