@@ -8,7 +8,7 @@ import NewGameForm from './NewGameForm';
 import { loginWithGithub, loadGames, loadChallenges, joinGame, createGame } from './network';
 
 function SideNav({ user, onSelectGame }) {
-  const [open, setOpen] = useState(!false);
+  const [open, setOpen] = useState(false);
   const [nickname, setNickname] = useState(localStorage.nickname || '');
   const [myGames, setMyGames] = useState([]);
   const [currentTab, setCurrentTab] = useState('games-list');
